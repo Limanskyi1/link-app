@@ -1,0 +1,168 @@
+.preview {
+  width: 307px;
+  position: relative;
+ 
+}
+
+
+.info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 75%;
+  & > img {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+  }
+  .name {
+    margin: 10px 0;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--dark-grey);
+  }
+  .mail {
+    font-size: 14px;
+    color: var(--grey);
+  }
+}
+
+
+
+.list {
+  width: 100%;
+  font-size: 16px;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 250px;
+  overflow: scroll;
+  & > a {
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    &.github {
+      background: #1a1a1a;
+      color: var(--white);
+      svg:first-of-type{
+        margin-right: 8px;
+      }
+      svg:first-of-type path {
+        fill: white;
+      }
+      svg:last-of-type {
+        margin-left: auto;
+        path {
+          fill: white;
+        }
+      }
+    }
+    &.frontend-mentor {
+      background: var(--white);
+      border: 1px solid var(--borders);
+      color: var(--dark-grey);
+      svg:first-of-type{
+        margin-right: 8px;
+      }
+      svg:first-of-type path:first-of-type {
+        fill: #67BECE;
+      }
+      svg:first-of-type path:nth-of-type(2) {
+        fill: #3F54A3;
+      }
+      svg:first-of-type path:last-of-type {
+        fill: #67BECE;
+      }
+      svg:last-of-type {
+        margin-left: auto;
+        path {
+          fill: #737373;
+        }
+      }
+    }
+    &.twitter {
+      background: #43b7e9;
+      color: var(--white);
+      svg:first-of-type{
+        margin-right: 8px;
+      }
+      svg:first-of-type path {
+        fill: white;
+      }
+      svg:last-of-type {
+        margin-left: auto;
+        path {
+          fill: white;
+        }
+      }
+    }
+    &.linkedIn {
+      background: #2d68ff;
+      color: var(--white);
+      svg:first-of-type{
+        margin-right: 8px;
+      }
+      svg:first-of-type path {
+        fill: white;
+      }
+      svg:last-of-type {
+        margin-left: auto;
+        path {
+          fill: white;
+        }
+      }
+    }
+    &.youTube {
+      background: #ee3939;
+      color: var(--white);
+      svg:first-of-type{
+        margin-right: 8px;
+      }
+      svg:first-of-type path {
+        fill: white;
+      }
+      svg:last-of-type {
+        margin-left: auto;
+        path {
+          fill: white;
+        }
+      }
+    }
+    &.facebook {
+      background: #2442ac;
+      color: var(--white);
+      svg:first-of-type{
+        margin-right: 8px;
+      }
+      svg:first-of-type path {
+        fill: white;
+      }
+      svg:last-of-type {
+        margin-left: auto;
+        path {
+          fill: white;
+        }
+      }
+    }
+    &.empty {
+      background: #eee;
+      span{
+        opacity: 0;
+      }
+      svg:first-of-type{
+        opacity: 0;
+      }
+      svg:last-of-type {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+

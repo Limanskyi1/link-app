@@ -1,0 +1,25 @@
+.btn-transparent {
+  display: block;
+  border: 1px solid var(--purple);
+  border-radius: 8px;
+  padding: 11px 27px;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--purple);
+  background: transparent;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    background: var(--light-purple);
+  }
+}
+
+.btn-save {
+  background: var(--purple);
+  border-radius: 8px;
+  padding: 11px 27px;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--white);
+  cursor: pointer;
+}
