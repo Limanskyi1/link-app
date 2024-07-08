@@ -38,7 +38,7 @@ export const DetailsImage = () => {
           {imagePreview ? (
             <img src={imagePreview} alt="Profile Preview" />
           ) : (
-            <img src="./src/assets/image-upload.png" alt="Profile Preview" />
+            <img src="./public/image-upload.png" alt="Profile Preview" />
           )}
         </div>
       </div>
