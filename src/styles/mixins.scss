@@ -1,0 +1,53 @@
+$maxWidth: 1440;
+@mixin adaptiv-font($pcSize, $mobSize) {
+  $addSize: $pcSize - $mobSize;
+  $maxWidth: $maxWidth - 375;
+  $originalMaxWidth: $maxWidth;
+  font-size: calc(
+    #{$mobSize + px} + #{$addSize} * ((100vw - 375px) / #{$maxWidth})
+  );
+  @media (min-width: #{$originalMaxWidth}px) {
+    font-size: #{$pcSize}px;
+  }
+}
+
+@mixin pb($minP, $maxP) {
+  padding-bottom: clamp(
+    #{$minP + px},
+    #{(($maxP + $minP) / 2 / 10) + vw},
+    #{$maxP + px}
+  );
+}
+
+@mixin pt($minP, $maxP) {
+  padding-top: clamp(
+    #{$minP + px},
+    #{(($maxP + $minP) / 2 / 10) + vw},
+    #{$maxP + px}
+  );
+}
+
+@mixin mb($minMargin, $maxMargin) {
+  margin-bottom: clamp(
+    #{$minMargin + px},
+    #{(($minMargin + $maxMargin) / 2 / 10) + vw},
+    #{$maxMargin + px}
+  );
+}
+
+@mixin mt($minMargin, $maxMargin) {
+  margin-top: clamp(
+    #{$minMargin + px},
+    #{(($minMargin + $maxMargin) / 2 / 10) + vw},
+    #{$maxMargin + px}
+  );
+}
+
+@mixin width($width, $container) {
+  width: $width / $container * 100%;
+}
+
+@mixin text-styles {
+  color: var(--grey);
+  @include adaptiv-font(16,14);
+}

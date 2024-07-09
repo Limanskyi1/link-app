@@ -1,3 +1,4 @@
+@import '../../styles/mixins.scss';
 .header {
   .wrapper {
     display: flex;
@@ -16,29 +17,28 @@
       align-items: center;
       gap: 8px;
       font-weight: 600;
-      font-size: 16px;
-      color: var(--grey);
       padding: 14px 28px;
-      background: transparent;
+      @include text-styles;
+      @include adaptiv-font(16,14);
       svg > path {
         fill: #777777;
       }
       &[aria-current="page"]{
-        color: #633CFF;
+        color: var(--purple);
         background: var(--light-purple);
         border-radius: 8px;
         svg > path {
-          fill: #633CFF;
+          fill: var(--purple);
         }
       }
     }
   }
   .header__preview {
     font-weight: 600;
-    font-size: 16px;
     border: 1px solid var(--purple);
     border-radius: 8px;
     padding: 11px 27px;
     color: var(--purple);
+    @include adaptiv-font(16,14);
   }
 }

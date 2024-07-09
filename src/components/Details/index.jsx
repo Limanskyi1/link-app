@@ -10,10 +10,10 @@ import { saveUserData } from "../../utils/saveUserData";
 
 export const Details = () => {
   const dispatch = useDispatch();
-  const id = useSelector((state) => state.user.id);
+  const id = useSelector((state) => state.user?.id);
   const data = useSelector((state) => state.user?.data);
-  const { imagePreviewFile, setIsVisibleMessage } = useContext(AppContext);
   const { user_name = "", user_last_name = "" } = { ...data };
+  const { imagePreviewFile, setIsVisibleMessage } = useContext(AppContext);
   const [errors, setErrors] = useState({});
   const [isSubmitForm, setIsSubmitForm] = useState(false);
 

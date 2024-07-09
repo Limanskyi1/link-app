@@ -27,7 +27,7 @@ export const Login = () => {
       navigate('/');
     } catch (error) {
       console.log(error);
-      setAuthError(error.message);
+      setAuthError("Incorrect email or password");
     }
   };
 

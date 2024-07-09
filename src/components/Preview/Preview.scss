@@ -1,11 +1,7 @@
 .preview {
-  width: 307px;
   position: relative;
- 
 }
-
-
-.info {
+.preview__info {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -30,13 +26,10 @@
     color: var(--grey);
   }
 }
-
-
-
-.list {
+.preview__list {
   width: 100%;
   font-size: 16px;
-  margin-top: 40px;
+  margin-top: 24px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -164,5 +157,9 @@
     }
   }
 }
+
+
+
+
 
 

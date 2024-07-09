@@ -7,7 +7,7 @@ export const Preview = () => {
       <div className="container">
         <nav className="nav">
           <NavLink to="/" className="btn-transparent">Back to editor</NavLink>
-          <button className="btn-save">Share link</button>
+          {/* <button className="btn-save">Share link</button> */}
         </nav>
         <div className="card">
             <PreviewInfo/>

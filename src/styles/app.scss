@@ -1,30 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap");
-
-:root {
-  --purple: #633cff;
-  --purple-hover-color: #beadff;
-  --light-purple: #efebff;
-  --dark-grey: #333;
-  --grey: #737373;
-  --borders: #d9d9d9;
-  --light-grey: #fafafa;
-  --white: #fff;
-  --red: #ff3939;
-  --font-family: "Instrument Sans", sans-serif;
-}
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  border: none;
-  outline: none;
-  text-decoration: none;
-}
-
-body {
-  font-family: var(--font-family);
-  background: var(--light-grey);
-}
+@import "./vars.scss";
+@import "./mixins.scss";
 
 .md-text {
   font-size: 16px;
@@ -53,13 +28,6 @@ body {
   }
 }
 
-.container {
-  max-width: 1394px;
-  padding: 20px 0;
-  margin: 0 auto;
-  width: 100%;
-}
-
 .layout-grid {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
@@ -74,13 +42,10 @@ img {
   max-height: 100%;
 }
 
-.block-1 {
+.block-preview {
   background: var(--white);
   border-radius: 12px;
   padding: clamp(40px, 5.5vw, 70px);
-}
-
-.flex-all-center {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -90,6 +55,7 @@ img {
   position: relative;
   width: 100vw;
   height: 100vh;
+  padding: 20px;
   &::after {
     border-radius: 0 0 32px 32px;
     position: absolute;
@@ -122,9 +88,41 @@ img {
     padding: 48px 56px;
     max-width: 400px;
   }
-  .info {
+  .preview__info {
     position: static;
     transform: unset;
     width: 100%;
   }
+}
+
+/// =>>>>>>>>>>>
+.main-layout {
+  max-width: 1394px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  & > div {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    padding: 0 20px;
+    gap: 40px;
+    height: 100%;
+    & > div:first-of-type {
+      width: 560 / 1354 * 100%;
+    }
+    & > div:last-of-type {
+      width: 808 / 1354 * 100%;
+    }
+  }
+}
+
+.error {
+  font-size: 12px;
+  text-align: right;
+  color: var(--red) !important;
 }

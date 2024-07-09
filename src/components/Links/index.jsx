@@ -6,25 +6,31 @@ import { LinksItem } from "./LinksItem";
 import { useContext, useState } from "react";
 import { AppContext } from "../../context/AppContext";
 import { saveUserData } from "../../utils/saveUserData";
+
 export const Links = () => {
   const links = useSelector((state) => state.user.data?.links);
-  const { imagePreviewFile, setIsVisibleMessage } = useContext(AppContext);
-  const id = useSelector((state) => state.user.id);
+  const id = useSelector((state) => state.user?.id);
   const data = useSelector((state) => state.user?.data);
+  const { imagePreviewFile, setIsVisibleMessage } = useContext(AppContext);
   const [errors, setErrors] = useState({});
 
   const validateFields = () => {
     const newErrors = {};
     links.forEach((link, index) => {
-      if (!link.url) {
+      if (!link.url && !link.url.startsWith('https://')) {
         newErrors[index] = newErrors[index] || {};
         newErrors[index].url = "URL is required";
+      } else if (!link.url.startsWith('https://')) {
+        newErrors[index] = newErrors[index] || {};
+        newErrors[index].url = "URL must start with https://";
       }
+      
       if (link.name === "EMPTY") {
         newErrors[index] = newErrors[index] || {};
         newErrors[index].name = "Platform is required";
       }
     });
+  
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };

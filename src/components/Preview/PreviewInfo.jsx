@@ -3,6 +3,7 @@ import { AppContext } from "../../context/AppContext";
 import { useSelector } from "react-redux";
 import emptyImg from "../../assets/empty-img.svg";
 import { linksObj } from "../../constants/selectValues";
+import { ArrowSvg } from "../../icons";
 
 export const PreviewInfo = () => {
   const { imagePreview } = useContext(AppContext);
@@ -25,7 +26,7 @@ export const PreviewInfo = () => {
     }
   };
   return (
-    <div className="info">
+    <div className="preview__info">
       <img src={setImage()} alt="" />
       <p className="name">
         {user_name} {user_last_name}
@@ -33,7 +34,7 @@ export const PreviewInfo = () => {
       <a className="mail" href={`mailto:${email}`}>
         {email}
       </a>
-      <div className="list">
+      <div className="preview__list">
         {links &&
           links?.length > 0 &&
           links.map((link, index) => (
@@ -52,16 +53,4 @@ export const PreviewInfo = () => {
   );
 };
 
-function ArrowSvg() {
-  return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path d="M2.66699 7.33355V8.66688H10.667L7.00033 12.3335L7.94699 13.2802L13.227 8.00022L7.94699 2.72021L7.00033 3.66688L10.667 7.33355H2.66699Z" />
-    </svg>
-  );
-}
+

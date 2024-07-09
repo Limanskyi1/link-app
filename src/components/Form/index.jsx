@@ -68,9 +68,10 @@ export const Form = ({ mode,onSubmit,authError }) => {
                 textAlign: "center",
                 display: "block",
                 marginBottom: "10px",
+                color: "#ff3939",
               }}
             >
-              Error
+              {authError}
             </span>
           )}
           <FormButton className="btn-purple">

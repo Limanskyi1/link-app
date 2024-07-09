@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useContext } from "react";
 import { AppContext } from "../../context/AppContext";
+import { IconEmpty } from "../../icons";
 
 export const DetailsImage = () => {
   const [uploading, setUploading] = useState(false);
   const user = useSelector((state) => state.user);
-  const {imagePreview, setImagePreview,setImagePreviewFile,imagePreviewFile} = useContext(AppContext);
+  const {imagePreview, setImagePreview,setImagePreviewFile} = useContext(AppContext);
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -38,7 +39,7 @@ export const DetailsImage = () => {
           {imagePreview ? (
             <img src={imagePreview} alt="Profile Preview" />
           ) : (
-            <img src="./public/image-upload.png" alt="Profile Preview" />
+            <IconEmpty/>
           )}
         </div>
       </div>

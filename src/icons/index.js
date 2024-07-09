@@ -4,6 +4,10 @@ export { Logo } from './Logo';
 export { IconLink } from './IconLink';
 export { IconProfile } from './IconProfile';
 export { IconHandPhone } from './IconHandPhone';
+export { ArrowSvg } from './ArrowSvg';
+export { IconEmpty } from './IconEmpty';
+
+
 export { IconGitHub, IconFMentor } from './IconsSites';
 
 

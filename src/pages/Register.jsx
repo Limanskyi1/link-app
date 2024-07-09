@@ -14,6 +14,10 @@ export const Register = () => {
   const handleReg = async (data) => {
     const email = data.email;
     const password = data.password;
+    if(password.length < 6){
+      setAuthError("Password should be at least 6 characters");
+      return
+    }
     try {
       const user = await authService.register(email, password);
       const data = await fireBaseService.getUserData(user.uid);
@@ -23,7 +27,7 @@ export const Register = () => {
       navigate('/');
     } catch (error) {
       console.log(error);
-      setAuthError(error.message);
+      setAuthError("Email already in use");
     }
   };
 
