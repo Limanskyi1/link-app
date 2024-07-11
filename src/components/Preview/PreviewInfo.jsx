@@ -1,33 +1,10 @@
-import { useContext } from "react";
-import { AppContext } from "../../context/AppContext";
-import { useSelector } from "react-redux";
-import emptyImg from "../../assets/empty-img.svg";
+
 import { linksObj } from "../../constants/selectValues";
 import { ArrowSvg } from "../../icons";
-
-export const PreviewInfo = () => {
-  const { imagePreview } = useContext(AppContext);
-  const {
-    avatar,
-    user_name,
-    user_last_name,
-    email,
-    links = null,
-  } = useSelector((state) => {
-    return state.user.data ? state.user.data : {};
-  });
-  const setImage = () => {
-    if (imagePreview) {
-      return imagePreview;
-    } else if (avatar) {
-      return avatar;
-    } else {
-      return emptyImg;
-    }
-  };
+export const PreviewInfo = ({user_name,user_last_name,email,links,setImage}) => {
   return (
     <div className="preview__info">
-      <img src={setImage()} alt="" />
+      <img src={setImage} alt="" />
       <p className="name">
         {user_name} {user_last_name}
       </p>

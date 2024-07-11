@@ -1,5 +1,5 @@
 import { Route, Routes, Navigate } from "react-router-dom";
-import { Home, Login, Preview, Register } from "./pages";
+import { Home, Login, Preview, PreviewOpen, Register } from "./pages";
 import React from "react";
 import { useSelector } from "react-redux";
 /////
@@ -15,14 +15,13 @@ const ProtectedRoute = ({ element, isAuth }) => {
 const App = () => {
   const isAuthTrue = useSelector((state) => state.user?.isAuth);
   const user = useSelector((state) => state.user);
-
   useFetchUserData(user);
-
   return (
     <>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/preview/:id" element={<PreviewOpen />} />
         <Route
           path="/"
           element={<ProtectedRoute isAuth={isAuthTrue} element={<Home />} />}

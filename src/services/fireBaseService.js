@@ -1,4 +1,4 @@
-import { doc, setDoc , getDoc, updateDoc} from "firebase/firestore";
+import { doc, setDoc , getDoc, updateDoc, getDocs, collection} from "firebase/firestore";
 import { db ,storage } from "../firebase";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
@@ -60,7 +60,19 @@ class FireBaseService {
       throw error;
     }
   }
+  async getAllUsers() {
+    try {
+      const querySnapshot = await getDocs(collection(db, "users"));
+      const users = [];
+      querySnapshot.forEach((doc) => {
+        users.push({ id: doc.id, ...doc.data() });
+      });
+      return users;
+    } catch (error) {
+      console.error("Error getting all users:", error);
+      throw error;
+    }
+  }
 }
-
 
 export default new FireBaseService();

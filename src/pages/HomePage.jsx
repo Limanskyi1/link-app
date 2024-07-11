@@ -7,6 +7,7 @@ import { Message } from "../components/Message";
 import { getFromLocalStorage } from "../services/localStorage.service";
 import { setUserId } from "../redux/userSlice";
 import { MainLayout } from "../layouts/MainLayout";
+import { IconData } from "../icons";
 
 export const Home = () => {
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ export const Home = () => {
           <Links />
         </div>
       </MainLayout>
-      <Message text="Your changes have been successfully saved!" />
+      <Message icon={<IconData/>} text="Your changes have been successfully saved!" />
     </>
   );
 };

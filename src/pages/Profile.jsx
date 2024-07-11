@@ -3,6 +3,7 @@ import { Details } from "../components/Details";
 import { Preview } from "../components/Preview";
 import { Message } from "../components/Message";
 import { MainLayout } from "../layouts/MainLayout";
+import { IconData } from "../icons";
 
 export const Profile = () => {
 
@@ -15,7 +16,7 @@ export const Profile = () => {
           <Details />
         </div>
       </MainLayout>
-      <Message text="Your changes have been successfully saved!"/>
+      <Message icon={<IconData/>} text="Your changes have been successfully saved!"/>
     </>
   );
 };

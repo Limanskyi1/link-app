@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
-import iconData from "../../assets/icon-data.svg";
-import "./Message.scss";
+import { useEffect } from "react";
 import { AppContext } from "../../context/AppContext";
 import { useContext } from "react";
+import "./Message.scss";
 
-export const Message = ({text}) => {
+export const Message = ({text,icon}) => {
   const {isVisibleMessage,setIsVisibleMessage} = useContext(AppContext);
 
   const showMessage = () => {
@@ -23,7 +22,7 @@ export const Message = ({text}) => {
 
   return (
     <div className={`message ${isVisibleMessage ? "fade-in" : "fade-out"}`}>
-      <img src={iconData} alt="" />
+      {icon}
       <p>{text}</p>
     </div>
   );

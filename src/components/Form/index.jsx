@@ -63,14 +63,7 @@ export const Form = ({ mode,onSubmit,authError }) => {
             />
           )}
           {authError && (
-            <span
-              style={{
-                textAlign: "center",
-                display: "block",
-                marginBottom: "10px",
-                color: "#ff3939",
-              }}
-            >
+            <span className="error">
               {authError}
             </span>
           )}
