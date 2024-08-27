@@ -12,6 +12,8 @@ const ProtectedRoute = ({ element, isAuth }) => {
   return isAuth ? element : <Navigate to="/login" />;
 };
 
+
+
 const App = () => {
   const isAuthTrue = useSelector((state) => state.user?.isAuth);
   const user = useSelector((state) => state.user);

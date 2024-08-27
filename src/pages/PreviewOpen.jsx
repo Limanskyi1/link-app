@@ -5,17 +5,23 @@ import { PreviewInfo } from "../components/Preview/PreviewInfo";
 import emptyImg from "../assets/empty-img.svg";
 
 export const PreviewOpen = () => {
-  const { id = null } = useParams();
+  const { id } = useParams();
+  const [loading,setLoading] = useState(true);
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
     const getUserData = async () => {
+      setLoading(true);
       try {
         const data = await fireBaseService.getUserData(id);
         setUserData(data);
+        setLoading(false);
       } catch (error) {
         console.error(error);
         setUserData(null);
+        setLoading(false);
+      } finally{
+        setLoading(false);
       }
     };
     if (id) {
@@ -23,13 +29,14 @@ export const PreviewOpen = () => {
     }
   }, []);
 
+
+  if(loading){
+    return <h2 className="flex-fullpage">Loading...</h2>
+  }
+
+
   if(!userData){
-      return <h2 style={{
-        height: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}>Not found user!</h2>
+      return <h2 className="flex-fullpage">Not found user!</h2>
   }
 
   return (
